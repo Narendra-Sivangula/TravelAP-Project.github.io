@@ -1,0 +1,182 @@
+<?php
+session_start();
+if(!isset($_SESSION['email'])){
+        header("location: index.html");
+ }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+<!-- custom css file link  -->
+         <link rel="stylesheet" href="style.css">
+          <link rel="stylesheet" href="signupcss.css"
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+</head>
+<body>
+<!-- header section starts  -->
+
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+    <button class="logos"><a href="home.html" class="logo" style="font-family:richard">
+    <span  style="color:red">T</span>ravel<span  style="font-family:magneto;color:rgb(54, 211, 255)">AP</span></a></button>
+
+    <nav class="navbar">
+        <a href="home.html">Home</a>
+        <a href="book.html">Book</a>
+        <a href="packages.html">Packages</a>
+        <!--<a href="#services">Services</a>-->
+        <a href="gallary.html">Gallery</a>
+        <!--<a href="#review">Review</a>-->
+        <a href="contact.html">Contact</a>
+    </nav>
+
+     <div class="action">
+        <div class="profile" onclick="menuToggle();">
+            <img src="images/logimage.png" alt="">
+        </div>
+
+        <div class="menu">
+        
+            <h3>
+               <?php
+                    echo ($_SESSION['email']);
+                 ?>
+            </h3>
+            <ul>
+                <li>
+                    <!--<span class="material-icons icons-size">person</span>-->
+                    <a href="profile.html">My Profile</a>
+                </li>
+                <li>
+                    <!--<span class="material-icons icons-size">insert_comment</span>-->
+                    <a href="logout.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+       <img src="images/moon.png" id="icon">
+
+</header>
+<!-- header section ends -->
+
+<!-- contact section starts  -->
+<br><br><br><br>
+<br><br><br><br>
+<br>
+
+<section class="contact" id="contact">
+    
+    <h1 class="heading">
+        <span>c</span>
+        <span>o</span>
+        <span>n</span>
+        <span>t</span>
+        <span>a</span>
+        <span>c</span>
+        <span>t</span>
+    </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="images/contact-img.svg" alt="">
+        </div>
+
+        <form action="email.html" method="post">
+            <div class="form-group">
+               <label for="fname" style="font-size:20px">Name :</label>
+                <input type="text" id ="fname"placeholder="Name..." name="name">
+            </div><br>
+             <div class="form-group">
+                <label for="email" style="font-size:20px">Email :</label>
+                <input type="email" id="email" placeholder="Email..." size="35" name="email">
+            </div><br>
+            <div class="form-group">
+                <label for="phno" style="font-size:20px">Number :</label>
+                <input type="tel" id="phno" placeholder="Number" name="number">
+            </div><br>
+           <div class="form-group">
+                <lable for="lname" style="font-size:20px">Subject :</label>
+                <input type="text" id = "lname" placeholder="Subject..." name="sub">
+            </div><br>
+          <div class="form-group">
+            <lable for="fname" style="font-size:20px">Message :</label>
+            <textarea placeholder="Message..." id = "fname" name="mssg" cols="30" rows="10" ></textarea>
+          </div>
+            <button class="glow-on-login" type="submit" name="msg"><a href="" style="font-size:20px">Send</a></button>
+          
+        </form>
+
+    </div>
+    
+</section>
+
+<!-- contact section ends -->
+
+
+<!-- footer section  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>about us</h3>
+
+<p>This  website helps you avoid journey-related hassles and issues. Be it one to find tickets and more.</p>
+        </div>
+        <div class="box">
+            <h3>branch locations</h3>
+            <a href="#">Hyderabad</a>
+            <a href="#">Banglore</a>
+            <a href="#">Chennai</a>
+            <a href="#">Vijayawada</a>
+        </div>
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">book</a>
+            <a href="#">packages</a>
+            <a href="#">services</a>
+            <a href="#">gallery</a>
+            <a href="#">review</a>
+            <a href="#">contact</a>
+        </div>
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">instagram</a>
+            <a href="#">twitter</a>
+            <a href="#">linkedin</a>
+        </div>
+
+    </div>
+
+</section>
+<script>document.querySelector('#icon').onclick = function() { 
+          var element = document.body;
+	element.classList.toggle("dark-mode");
+	if(element.classList.contains("dark-mode")){
+	         icon.src = "images/sun.png";
+		}else{
+			icon.src = "images/moon.png";
+			}
+}</script>
+<script>
+        function menuToggle(){
+            const toggleMenu = document.querySelector('.menu');
+            toggleMenu.classList.toggle('active')
+        }
+    </script>
+
+
+</body>
+</html>
